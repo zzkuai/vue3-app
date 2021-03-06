@@ -1,0 +1,32 @@
+{
+  "name": "vue3-app",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --mode dev",
+    "build": "vite build --mode prod",
+    "stage": "vite build --mode stage",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.0.5",
+    "vue-router": "^4.0.4",
+    "vuex": "^4.0.0",
+    "whatwg-fetch": "^3.6.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.1.4",
+    "@vue/compiler-sfc": "^3.0.5",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-vue": "^7.6.0",
+    "less": "^4.1.1",
+    "prettier": "^2.2.1",
+    "vite": "^2.0.1"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "semi": false
+  }
+}
