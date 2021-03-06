@@ -19,7 +19,7 @@ export function httpGet(url, params) {
   let queryStr = ''
   if (params) {
     Object.keys(params).forEach((key, index) => {
-      queryStr += `${index === 0 ? '?' : '&'}${params[key]}`
+      queryStr += `${index === 0 ? '?' : '&'}${key}=${params[key]}`
     })
   }
 

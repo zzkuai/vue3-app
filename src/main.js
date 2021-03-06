@@ -1,5 +1,11 @@
 import { createApp } from 'vue'
+import './assets/styles/reset.less'
 import App from './App.vue'
 import router from './router'
+import useVant from './plugins/vant'
 
-createApp(App).use(router).mount('#app')
+const app = createApp(App)
+
+useVant(app)
+app.use(router)
+app.mount('#app')
