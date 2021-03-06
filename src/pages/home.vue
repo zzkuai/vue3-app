@@ -1,3 +1,3 @@
 <template>
-  <router-link to="music"><van-button type="primary">music</van-button> </router-link>
+  <div>home</div>
 </template>
