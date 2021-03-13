@@ -1,5 +1,5 @@
 <template>
-  <div v-if="block.list.length" class="playlist mg-t-20 pd-t-15">
+  <section v-if="block.list.length" class="playlist mg-t-20 pd-t-15">
     <div class="playlist-header d-flex f-jc-sp f-ai-c pd-x-15">
       <h2 class="title font-lg">{{ block.subTitle }}</h2>
       <span class="more font-md">{{ block.button }} ></span>
@@ -7,11 +7,11 @@
     <ul class="playlist-list mg-t-15 pd-x-15">
       <li v-for="item in block.list" :key="item.id" class="playlist-item mg-r-15">
         <span class="count font-sm br-10">{{ formatCount(item.info.playCount) }}</span>
-        <img class="img br-10" :src="`${item.image}?param=300y300`" alt="" />
+        <img v-lazyload class="img br-10" :data-src="`${item.image}?param=300y300`" alt="" />
         <span class="name mg-t-5 font-md">{{ item.name }}</span>
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>

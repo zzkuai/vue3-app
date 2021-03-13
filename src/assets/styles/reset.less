@@ -24,3 +24,10 @@ h6 {
   width: 0;
   height: 0;
 }
+
+img {
+  &:not([src]),
+  &[src=''] {
+    opacity: 0;
+  }
+}

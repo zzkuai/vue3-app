@@ -1,7 +1,9 @@
 <template>
   <ul v-if="entryList.length" class="entry mg-t-20 pd-x-15">
     <li v-for="(entry, index) in entryList" :key="index" class="entry-item mg-r-25" @click="openPage(entry.url)">
-      <div class="entry-circle"><img class="entry-img" :src="`${entry.iconUrl}?param=120y120`" alt="" /></div>
+      <div class="entry-circle">
+        <img v-lazyload class="entry-img" :data-src="`${entry.iconUrl}?param=120y120`" alt="" />
+      </div>
       <span class="entry-name font-md">{{ entry.name }}</span>
     </li>
   </ul>
