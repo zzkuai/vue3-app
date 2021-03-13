@@ -1,0 +1,42 @@
+.border-1px(@color, @radius: 20px) {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    border: 1px solid @color;
+    transform: translate(-50%, -50%) scale(0.5, 0.5);
+    border-radius: @radius;
+    z-index: -1;
+
+    @media screen and (-webkit-min-device-pixel-ratio: 3), (min-resolution: 3dppx) {
+      width: 300%;
+      height: 300%;
+      transform: translate(-50%, -50%) scale(0.33333, 0.33333);
+      border-radius: @radius * 3;
+    }
+  }
+}
+
+.border-top-1px(@color, @radius: 20px) {
+  .border-1px(@color, @radius);
+
+  &::before {
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+.ellipsis(@line:2) {
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @line;
+}
