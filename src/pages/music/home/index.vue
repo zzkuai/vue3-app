@@ -2,6 +2,7 @@
   <Banner :blocks="homeInfo.blocks" />
   <Entry :list="homeInfo.entry" />
   <PlayList :blocks="homeInfo.blocks" />
+  <Custom :blocks="homeInfo.blocks" />
 </template>
 
 <script>
@@ -11,11 +12,13 @@ import { getHomeInfo, getEntry } from '~api/music/home'
 import Banner from './child/banner.vue'
 import Entry from './child/entry.vue'
 import PlayList from './child/playlist.vue'
+import Custom from './child/custom.vue'
 export default {
   components: {
     Banner,
     Entry,
     PlayList,
+    Custom,
   },
   setup() {
     const homeInfo = reactive({ blocks: [], entry: [], config: {} })

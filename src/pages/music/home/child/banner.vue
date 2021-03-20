@@ -11,7 +11,7 @@
 
 <script>
 import { computed } from 'vue'
-import { getBlock, openPage } from '../use'
+import { getBlock, openPage } from '../tool'
 export default {
   props: {
     blocks: {
