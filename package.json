@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "big.js": "^6.0.3",
+    "lodash-es": "^4.17.21",
     "vant": "^3.0.7",
     "vue": "^3.0.5",
     "vue-router": "^4.0.4",

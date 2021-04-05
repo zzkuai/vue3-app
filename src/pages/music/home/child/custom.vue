@@ -1,8 +1,8 @@
 <template>
   <section v-show="list.length" class="custom mg-t-20">
     <block-header :title="block.mainTitle" :button="block.button"></block-header>
-    <ul class="custom-list pd-x-15">
-      <li v-for="(item, index) in list" :key="index" class="custom-item">
+    <base-scroll direction="horizontal" class="custom-list pd-x-15">
+      <div v-for="(item, index) in list" :key="index" class="custom-item">
         <div v-for="resource in item.resources" :key="resource.id" class="custom-resource mg-t-15">
           <div class="left mg-r-10">
             <img v-lazyload class="left-img br-8" data-img-size="120y120" :data-src="resource.imageUrl" alt="" />
@@ -20,8 +20,8 @@
             </div>
           </div>
         </div>
-      </li>
-    </ul>
+      </div>
+    </base-scroll>
   </section>
 </template>
 
@@ -29,8 +29,9 @@
 import { computed } from 'vue'
 import { getSolidBlock } from '../tool'
 import BlockHeader from '~comps/music/home/block-header.vue'
+import BaseScroll from '~comps/base/base-scroll.vue'
 export default {
-  components: { BlockHeader },
+  components: { BlockHeader, BaseScroll },
   props: {
     blocks: {
       type: Array,

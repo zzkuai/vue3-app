@@ -1,15 +1,15 @@
 <template>
   <section v-if="list.length" class="playlist mg-t-20 pd-t-15">
     <block-header :title="block.subTitle" :button="block.button"></block-header>
-    <ul class="playlist-list mg-t-15 pd-x-15">
-      <li v-for="item in list" :key="item.id" class="playlist-item mg-r-15">
+    <base-scroll direction="horizontal" class="playlist-list mg-t-15 pd-x-15">
+      <div v-for="item in list" :key="item.id" class="playlist-item mg-r-15">
         <router-link :to="{ name: 'PlayListDetail', query: { id: item.id } }">
           <span class="count font-sm br-10">{{ formatCount(item.info.playCount) }}</span>
           <img v-lazyload class="img br-10" data-img-size="300y300" :data-src="item.imageUrl" alt="" />
           <span class="name mg-t-5 font-md">{{ item.name }}</span>
         </router-link>
-      </li>
-    </ul>
+      </div>
+    </base-scroll>
   </section>
 </template>
 
@@ -18,8 +18,9 @@ import { computed } from 'vue'
 import { getSolidBlock } from '../tool'
 import { formatCount } from '~src/utils/format'
 import BlockHeader from '~comps/music/home/block-header.vue'
+import BaseScroll from '~comps/base/base-scroll.vue'
 export default {
-  components: { BlockHeader },
+  components: { BlockHeader, BaseScroll },
   props: {
     blocks: {
       type: Array,

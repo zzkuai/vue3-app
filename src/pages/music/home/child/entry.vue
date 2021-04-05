@@ -1,18 +1,20 @@
 <template>
-  <ul v-if="entryList.length" class="entry mg-t-20 pd-x-15">
-    <li v-for="(entry, index) in entryList" :key="index" class="entry-item mg-r-25" @click="openPage(entry.url)">
+  <base-scroll v-if="entryList.length" direction="horizontal" class="entry mg-t-20 pd-x-15">
+    <div v-for="(entry, index) in entryList" :key="index" class="entry-item mg-r-25" @click="openPage(entry.url)">
       <div class="entry-circle">
         <img v-lazyload class="entry-img" data-img-size="120y120" :data-src="entry.iconUrl" alt="" />
       </div>
       <span class="entry-name font-md">{{ entry.name }}</span>
-    </li>
-  </ul>
+    </div>
+  </base-scroll>
 </template>
 
 <script>
 import { computed } from 'vue'
 import { openPage } from '../tool'
+import BaseScroll from '~comps/base/base-scroll.vue'
 export default {
+  components: { BaseScroll },
   props: {
     list: {
       type: Array,
