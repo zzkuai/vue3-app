@@ -1,6 +1,6 @@
 import 'whatwg-fetch'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+const API_BASE_URL = import.meta.env.VITE_MUSIC_API_BASE_URL
 
 async function http(url, options) {
   const res = await window.fetch(API_BASE_URL + url, options)

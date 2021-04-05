@@ -5,7 +5,7 @@ import styleImport from 'vite-plugin-style-import'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: 'vue3-app',
+  base: '/vue3-app/',
   css: {
     preprocessorOptions: {
       less: {
