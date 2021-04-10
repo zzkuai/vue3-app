@@ -8,6 +8,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
@@ -15,19 +18,27 @@ jobs:
           ref: feat/music
           persist-credentials: false
 
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Check Info
+        run: |
+          git branch
+          node -v
+
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        with:
+          node-version: ${{ matrix.node-version }}
         run: |
           yarn
           yarn build
 
-      - name: Check Branch
-        run: |
-          git branch
-
       - name: Deploy to Cloud Server
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
-          SOURCE: 'dist/'
+          SOURCE: 'vue3-app/'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
