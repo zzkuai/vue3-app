@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/home.vue'
-import NotFound from '../pages/404.vue'
 import music from './music'
 
 const router = createRouter({
@@ -18,7 +17,7 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
-      component: NotFound,
+      component: () => import('../pages/404.vue'),
     },
     ...music,
   ],
